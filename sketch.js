@@ -26,14 +26,13 @@ function setup() {
 	helicopterSprite.scale=0.6
 
 	bottom=createSprite(width/2 , 650, 200,20)
-	bottom.shapeColor = color("red")
+	bottom.shapeColor = "red"
 	
 	leftSide=createSprite(300,610,20,100)
-	leftSide.shapeColor=color("red")
+	leftSide.shapeColor="red"
 
 	rightSide=createSprite(500,610,20,100)
-	rightSide.shapeColor=color("red")
-
+	rightSide.shapeColor="red"
 
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
@@ -42,15 +41,21 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.5, isStatic:true});
-	World.add(world, packageBody);
+	 packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.5, isStatic:true});
+	 World.add(world, packageBody);
 	
-
-	//Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	 ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
 	 World.add(world, ground);
 	 
-	 bottom = Bodies.rectangle(width/2,650,200,{isStatic : true})
+	 bottom = Bodies.rectangle(width/2,630,200,20,{isStatic : true})
+	 World.add(world,bottom);
+	
+	 rightSide = Bodies.rectangle(500,610,20,100,{isStatic : true})
+	 World.add(world,rightSide);
+
+	 leftSide = Bodies.rectangle(300,610,20,100,{isStatic : true})
+	 World.add(world,leftSide);
+
 
 
 	Engine.run(engine);
@@ -64,8 +69,8 @@ function draw() {
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
 
-  bottom.x = bottom.position.x
-  bottom.y = bottom.position.y
+ 
+
   drawSprites();
  
 }
